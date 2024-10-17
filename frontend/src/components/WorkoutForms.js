@@ -7,7 +7,6 @@ const WorkoutForm = () => {
     const [load, setLoad] = useState('')
     const [reps, setReps] = useState('') 
     const [error, setError] = useState(null) 
-    const [emptyFields, setEmptyFields] = useState([])
     
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -24,14 +23,12 @@ const WorkoutForm = () => {
 
         if (!response.ok) {
             setError(json.error)
-            setEmptyFields(json.emptyFields)
         }
         if (response.ok) {
             setTitle('')
             setLoad('')
             setReps('')
             setError(null)
-            setEmptyFields([])
             console.log('new workout added', json)
             dispatch({type: 'CREATE_WORKOUT', payload: json})
         }
