@@ -23,7 +23,7 @@ const Home =  () => {
     }, [])
 
     return (
-        <div className="Home">
+        <div className="home">
             <div className="workouts">
                 {workouts && workouts.map(workout => (
                     <WorkoutDetails key={workout._id} workout={workout}/>
